@@ -7,25 +7,28 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using backend.Data;
 using backend.Models;
+using backend.Repository.IRepository;
 
 namespace backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class NotesController : ControllerBase
+    public class NotesAPIController : ControllerBase
     {
         private readonly ApplicationDbContext _db;
+        private readonly INoteRepository _dbNote;
 
-        public NotesController(ApplicationDbContext db)
+        public NotesAPIController(ApplicationDbContext db, INoteRepository dbNote)
         {
             _db = db;
+            _dbNote = dbNote;
         }
 
         // GET: api/Notes
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Note>>> GetNotes()
         {
-            return await _db.Notes.ToListAsync();
+            return await _dbNote.GetAllAsync();
         }
 
         // GET: api/Notes/5

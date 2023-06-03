@@ -1,5 +1,7 @@
 
 using backend.Data;
+using backend.Repository;
+using backend.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend
@@ -14,6 +16,8 @@ namespace backend
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection"));
             });
+
+            builder.Services.AddScoped<INoteRepository, NoteRepository>();
 
             // Add services to the container.
 
