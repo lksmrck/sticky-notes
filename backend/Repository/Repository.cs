@@ -21,8 +21,7 @@ namespace backend.Repository
 
         public async Task CreateAsync(T entity)
         {
-            // await _dbSet.AddAsync(entity);
-            await _db.AddAsync(entity);
+            await _dbSet.AddAsync(entity);
             await SaveAsync();
         }
 
@@ -36,7 +35,6 @@ namespace backend.Repository
             }
 
             return await query.ToListAsync();
-
         }
 
         public async Task<T> GetAsync(Expression<Func<T, bool>> filter = null)
@@ -49,7 +47,6 @@ namespace backend.Repository
             }
 
             return await query.FirstOrDefaultAsync();
-
         }
 
         public async Task RemoveAsync(T entity)
