@@ -40,12 +40,29 @@ namespace backend
             builder.Services.AddAutoMapper(typeof(MappingConfig));
 
             builder.Services.AddControllers();
+            builder.Services.AddTransient<Seed>();
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
 
             var app = builder.Build();
+
+            // Seed DB context before app starts
+            if (args.Length == 1 && args[0].ToLower() == "seeddata")
+                SeedData(app);
+
+            void SeedData(IHost app)
+            {
+                var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+
+                using (var scope = scopedFactory.CreateScope())
+                {
+                    var service = scope.ServiceProvider.GetService<Seed>();
+                    service.SeedDbContext();
+                }
+            }
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

@@ -8,7 +8,7 @@ using backend.Data;
 
 #nullable disable
 
-namespace backend.Migrations
+namespace API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -42,32 +42,15 @@ namespace backend.Migrations
                     b.Property<string>("Heading")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Tags")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Text")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Notes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Author = "Antonin Dvorak",
-                            CreatedDate = new DateTime(2023, 5, 30, 22, 53, 4, 168, DateTimeKind.Local).AddTicks(4447),
-                            EditedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Heading = "First Note",
-                            Text = "Detailsaf nejfqo qnfwk qwfn qwf qn"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Author = "Bedrich Smetana",
-                            CreatedDate = new DateTime(2023, 5, 30, 22, 53, 4, 168, DateTimeKind.Local).AddTicks(4580),
-                            EditedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Heading = "Second Note",
-                            Text = "Detailsaf nejfqo qnfwk qwfn qwf qn"
-                        });
                 });
 #pragma warning restore 612, 618
         }

@@ -14,8 +14,7 @@ namespace backend.Models.DTO
         public string Text { get; set; }
         [Required]
         public string Author { get; set; }
-        //public List<Tag> Tags { get; set; }
-        [NotMapped]
+   
         public List<string> Tags { get; set; } 
     }
 }
