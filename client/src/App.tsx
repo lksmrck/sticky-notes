@@ -10,7 +10,7 @@ import { useEffect } from "react";
 function App() {
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("https://localhost:7280/weatherforecast");
+      const response = await fetch("https://localhost:7280/api/NoteAPI");
       const data = await response.json();
       console.log(data);
     };
