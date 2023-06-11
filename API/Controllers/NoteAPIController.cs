@@ -157,14 +157,18 @@ namespace backend.Controllers
         [HttpPut("{id}", Name = "UpdateNote")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<APIResponse>> PutNote(int id, [FromBody] Note note)
+        public async Task<ActionResult<APIResponse>> UpdateNote(int id, [FromBody] NoteUpdateDto updateDto)
         {
             try
             {
-                if (note == null || id != note.Id)
+                Note note = _mapper.Map<Note>(updateDto);
+
+                if (updateDto == null || id != updateDto.Id)
                 {
                     return BadRequest();
                 }
+
+                //Note note =  _mapper.Map<Note>(updateDto);
 
                 await _dbNote.UpdateAsync(note);
 

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace API.Models.DTO
 {
-    public class NoteCreateDto
+    public class NoteUpdateDto
     {
         [Required]
         public int Id { get; set; }
@@ -14,6 +14,7 @@ namespace API.Models.DTO
         public string Text { get; set; }
         [Required]
         public string Author { get; set; }
+   
         public List<string> Tags { get; set; }
     }
 }

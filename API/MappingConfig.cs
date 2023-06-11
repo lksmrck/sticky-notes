@@ -13,7 +13,7 @@ namespace API
             CreateMap<Note, NoteDto>().ReverseMap();
 
             CreateMap<Note, NoteCreateDto>().ReverseMap();
-            //CreateMap<Note, UpdateNoteDto>().ReverseMap();
+            CreateMap<Note, NoteUpdateDto>().ReverseMap();
         }
     }
 }

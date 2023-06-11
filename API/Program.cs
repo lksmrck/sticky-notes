@@ -18,6 +18,8 @@ namespace backend
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection"));
             });
 
+            builder.Services.AddScoped<DbContext, ApplicationDbContext>();
+
             builder.Services.AddScoped<INoteRepository, NoteRepository>();
 
             builder.Services.AddCors(options =>
