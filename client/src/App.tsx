@@ -6,23 +6,18 @@ import Note from "./components/Note/Note";
 import NoteList from "./components/Note/NoteList";
 import MainPage from "./pages/MainPage";
 import { useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import AddNotePage from "./pages/AddNotePage";
 
 function App() {
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("https://localhost:7280/api/NoteAPI");
-      const data = await response.json();
-      console.log(data);
-    };
-
-    fetchData();
-  }, []);
-
   return (
     <div className="App">
       <Navbar />
       <div className=" w-full h-screen bg-pink-300">
-        <MainPage />
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/add-note" element={<AddNotePage />} />
+        </Routes>
       </div>
     </div>
   );
