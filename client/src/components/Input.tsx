@@ -4,10 +4,11 @@ import { FC } from "react";
 type Props = {
   value: string;
   onChange: any;
+  onKeyDown?: any;
 };
 
-const Input: FC<Props> = ({ value, onChange }) => {
-  return <MUI_Input value={value} onChange={onChange} />;
+const Input: FC<Props> = ({ value, onChange, onKeyDown }) => {
+  return <MUI_Input value={value} onChange={onChange} onKeyDown={onKeyDown} />;
 };
 
 export default Input;
