@@ -2,14 +2,18 @@ import { useState } from "react";
 import TextArea from "../TextArea";
 import TagsInput from "./TagsInput";
 import { NoteType } from "../../types";
+import { createNote } from "../../api";
 
 const Form = () => {
-  const [formData, setFormData] = useState<NoteType>({} as NoteType);
+  const [formData, setFormData] = useState<NoteType>({
+    author: "testAuthor",
+  } as NoteType);
 
-  const handleSubmit = (e: any): void => {
+  const handleSubmit = async (e: any): Promise<void> => {
     e.preventDefault();
-    console.log(formData);
-    console.log(e.key);
+    const res = await createNote(formData);
+    console.log(res);
+    // console.log(formData);
   };
 
   const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,9 +32,9 @@ const Form = () => {
   };
 
   return (
-    <div className="w-full  h-full flex justify-center items-center ">
+    <div className="w-full h-full flex justify-center items-center ">
       <form
-        className=" bg-teal-100 w-1/3 shadow-md rounded-xl px-8 pt-6 pb-8 mb-4 h-1/2"
+        className="  bg-teal-100 w-1/3 shadow-md rounded-xl px-8 pt-6 pb-8 mb-4 min-h-1/2"
         onSubmit={handleSubmit}
       >
         <div className="mb-4">

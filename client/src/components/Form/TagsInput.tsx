@@ -19,7 +19,6 @@ const TagsInput: FC<Props> = ({ liftTagsStateUp }) => {
     arr.splice(index, 1);
     console.log(item);
     setTags(arr);
-    liftTagsStateUp(tags);
   };
 
   const keyPress = (e: any) => {
@@ -29,6 +28,7 @@ const TagsInput: FC<Props> = ({ liftTagsStateUp }) => {
       setTags((curr) => [...curr, currValue]);
       console.log(tags);
       setCurrValue("");
+      liftTagsStateUp(tags);
     }
   };
 

@@ -8,6 +8,8 @@ import MainPage from "./pages/MainPage";
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import AddNotePage from "./pages/AddNotePage";
+import Login from "./components/Auth/Login";
+import Register from "./components/Auth/Register";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/add-note" element={<AddNotePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </div>
