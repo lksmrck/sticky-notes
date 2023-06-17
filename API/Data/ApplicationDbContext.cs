@@ -16,6 +16,7 @@ namespace backend.Data
 
 
         // Create tables
+        public DbSet<LocalUser> LocalUsers { get; set; }  
         public DbSet<Note> Notes { get; set; }
 
      

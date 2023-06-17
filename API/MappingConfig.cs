@@ -14,6 +14,9 @@ namespace API
 
             CreateMap<Note, NoteCreateDto>().ReverseMap();
             CreateMap<Note, NoteUpdateDto>().ReverseMap();
+
+            CreateMap<LocalUser, RegistrationRequestDto>().ReverseMap();
+            CreateMap<LocalUser, LoginRequestDto>().ReverseMap();
         }
     }
 }
