@@ -1,11 +1,13 @@
 
 using API;
+using API.Models;
 using API.Repository;
 using API.Repository.IRepository;
 using backend.Data;
 using backend.Repository;
 using backend.Repository.IRepository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -22,7 +24,8 @@ namespace backend
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection"));
             });
-
+            // Db tables for user will be created by identity
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 
             builder.Services.AddScoped<DbContext, ApplicationDbContext>();
             builder.Services.AddScoped<INoteRepository, NoteRepository>();

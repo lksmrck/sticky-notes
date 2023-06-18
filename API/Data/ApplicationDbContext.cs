@@ -1,5 +1,7 @@
-﻿using AutoMapper.Execution;
+﻿using API.Models;
+using AutoMapper.Execution;
 using backend.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Newtonsoft.Json;
@@ -8,7 +10,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace backend.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -16,6 +18,7 @@ namespace backend.Data
 
 
         // Create tables
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<LocalUser> LocalUsers { get; set; }  
         public DbSet<Note> Notes { get; set; }
 
@@ -23,6 +26,8 @@ namespace backend.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Note>()
                .Property(x => x.Tags)
                .HasConversion(new ValueConverter<List<string>, string>(

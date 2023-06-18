@@ -1,4 +1,5 @@
-﻿using API.Models.DTO;
+﻿using API.Models;
+using API.Models.DTO;
 using AutoMapper;
 using backend.Models;
 using backend.Models.DTO;
@@ -17,6 +18,9 @@ namespace API
 
             CreateMap<LocalUser, RegistrationRequestDto>().ReverseMap();
             CreateMap<LocalUser, LoginRequestDto>().ReverseMap();
+
+            CreateMap<ApplicationUser, UserDto>().ReverseMap();
+
         }
     }
 }
