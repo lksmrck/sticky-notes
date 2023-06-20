@@ -1,33 +1,47 @@
-import { NoteType } from "../types"
+import { NoteType, LoginUserType } from "../types";
 
-const URL = "https://localhost:7280/api/NoteAPI/"
+const NOTES_URL = "https://localhost:7280/api/NoteAPI/";
+const AUTH_URL = "https://localhost:7280/api/Users/";
 
 export const getNotes = async (): Promise<NoteType[]> => {
-    const res = await fetch(URL)
-    const data = await res.json()
-    return data.result
-}
+  const res = await fetch(NOTES_URL);
+  const data = await res.json();
+  return data.result;
+};
 
-export const getNote = () => {
-    
-}
+export const getNote = () => {};
 
 export const createNote = async (note: NoteType) => {
-    const res = await fetch(URL, {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(note)
-    })
+  const res = await fetch(NOTES_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(note),
+  });
 
-    const data = await res.json()
-    return data.result
-}
+  const data = await res.json();
+  return data.result;
+};
 
 export const deleteNote = async (id: number) => {
-    const res = await fetch(URL+id, {
-        method: "DELETE",
-        headers: {"Content-Type": "application/json"},
-       
-    })
-    
-}
+  const res = await fetch(NOTES_URL + id, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  });
+};
+
+// AUTH
+
+export const registerUser = async () => {};
+
+export const loginUser = async (user: LoginUserType) => {
+  const res = await fetch(AUTH_URL + "login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(user),
+  });
+
+  const data = await res.json();
+  console.log(data);
+  //TODO: user do state
+  /* return data.result; */
+};

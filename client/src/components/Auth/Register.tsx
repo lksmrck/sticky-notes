@@ -23,7 +23,7 @@ const Register = () => {
             onChange={inputChangeHandler}
             name="password"
           />
-          <Button />
+          {/* <Button /> */}
         </form>
       </div>
     </div>
