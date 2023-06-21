@@ -10,3 +10,9 @@ export type LoginUserType = {
   userName: string;
   password: string;
 };
+
+export type UserType = {
+  userName: string;
+  name: string;
+  token: string;
+};

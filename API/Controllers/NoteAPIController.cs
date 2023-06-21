@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using backend.Models.DTO;
 using AutoMapper;
 using API.Models.DTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace backend.Controllers
 {
@@ -35,6 +36,7 @@ namespace backend.Controllers
 
         // GET: api/Notes
         [HttpGet]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -109,6 +111,7 @@ namespace backend.Controllers
 
         // POST: api/Notes
         [HttpPost]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

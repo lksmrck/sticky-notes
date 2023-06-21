@@ -3,17 +3,22 @@ import Input from "../Input";
 import Button from "../Button";
 import { LoginUserType } from "../../types";
 import { loginUser } from "../../api";
+import useAuth from "../../context/AuthContext";
 
 const Login = () => {
   const [formData, setFormData] = useState({} as LoginUserType);
+
+  const { setCurrentUser } = useAuth();
 
   const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const loginButtonClickHandler = (e: any) => {
+  const loginButtonClickHandler = async (e: any) => {
     e.preventDefault();
-    loginUser(formData);
+    const loggedUser = await loginUser(formData);
+    /* console.log(loggedUser); */
+    setCurrentUser(loggedUser);
   };
 
   return (

@@ -3,18 +3,21 @@ import Note from "./Note";
 import { useEffect, useState } from "react";
 import { NoteType } from "../../types";
 import { getNotes } from "../../api";
+import useAuth from "../../context/AuthContext";
 
 const NoteList = () => {
   const [notes, setNotes] = useState<NoteType[] | null>(null);
+  const { currentUser } = useAuth();
 
   useEffect(() => {
+    console.log(currentUser.token);
     const fetchData = async () => {
-      const data = await getNotes();
+      const data = await getNotes(currentUser.token);
+
       setNotes(data);
     };
 
     fetchData();
-    console.log(notes);
   }, []);
 
   return (

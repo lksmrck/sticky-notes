@@ -10,8 +10,10 @@ import { Route, Routes } from "react-router-dom";
 import AddNotePage from "./pages/AddNotePage";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
+import useAuth from "./context/AuthContext";
 
 function App() {
+  const { currentUser } = useAuth();
   return (
     <div className="App">
       <Navbar />

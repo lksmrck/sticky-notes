@@ -3,18 +3,27 @@ import { NoteType, LoginUserType } from "../types";
 const NOTES_URL = "https://localhost:7280/api/NoteAPI/";
 const AUTH_URL = "https://localhost:7280/api/Users/";
 
-export const getNotes = async (): Promise<NoteType[]> => {
-  const res = await fetch(NOTES_URL);
+export const getNotes = async (token: string): Promise<NoteType[]> => {
+  const res = await fetch(NOTES_URL, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  });
   const data = await res.json();
   return data.result;
 };
 
 export const getNote = () => {};
 
-export const createNote = async (note: NoteType) => {
+export const createNote = async (note: NoteType, token: string) => {
+  console.log(token);
   const res = await fetch(NOTES_URL, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify(note),
   });
 
@@ -41,7 +50,9 @@ export const loginUser = async (user: LoginUserType) => {
   });
 
   const data = await res.json();
-  console.log(data);
+  /* console.log(data.result); */
+  return data.result;
+
   //TODO: user do state
   /* return data.result; */
 };

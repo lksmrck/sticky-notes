@@ -3,21 +3,25 @@ import TextArea from "../TextArea";
 import TagsInput from "./TagsInput";
 import { NoteType } from "../../types";
 import { createNote } from "../../api";
+import useAuth from "../../context/AuthContext";
 
 const Form = () => {
+  const { currentUser } = useAuth();
   const [formData, setFormData] = useState<NoteType>({
-    author: "testAuthor",
+    author: currentUser.user.name,
   } as NoteType);
 
   const handleSubmit = async (e: any): Promise<void> => {
     e.preventDefault();
-    const res = await createNote(formData);
+    const res = await createNote(formData, currentUser.token);
     console.log(res);
-    // console.log(formData);
   };
 
   const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const liftTagsStateUp = (tags: string[]): void => {
