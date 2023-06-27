@@ -43,7 +43,12 @@ const TagsInput: FC<Props> = ({ liftTagsStateUp }) => {
         />
       ))}
       <div>
-        <Input value={currValue} onChange={handleChange} onKeyDown={keyPress} />
+        <Input
+          value={currValue}
+          onChange={handleChange}
+          onKeyDown={keyPress}
+          placeholder="Add Note Tags"
+        />
         {/* <Button type="submit">Sub</Button> */}
       </div>
     </div>

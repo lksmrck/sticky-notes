@@ -4,6 +4,7 @@ import TagsInput from "./TagsInput";
 import { NoteType } from "../../types";
 import { createNote } from "../../api";
 import useAuth from "../../context/AuthContext";
+import Button from "../Button";
 
 const Form = () => {
   const { currentUser } = useAuth();
@@ -38,19 +39,19 @@ const Form = () => {
   return (
     <div className="w-full h-full flex justify-center items-center ">
       <form
-        className="  bg-teal-100 w-1/3 shadow-md rounded-xl px-8 pt-6 pb-8 mb-4 min-h-1/2"
+        className=" bg-sky-950 w-1/3 shadow-md rounded-xl px-8 pt-6 pb-8 mb-4 min-h-1/2"
         onSubmit={handleSubmit}
       >
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block  text-sm font-bold mb-2 text-white"
             htmlFor="heading"
             onKeyDown={keyPress}
           >
-            Heading
+            Note Heading
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
             id="heading"
             name="heading"
             type="text"
@@ -60,28 +61,20 @@ const Form = () => {
         </div>
         <div className="mb-6">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-white text-sm font-bold mb-2"
             htmlFor="text"
           >
-            Text
+            Note Text
           </label>
           <TextArea name="text" id="text" onChange={inputChangeHandler} />
           <TagsInput liftTagsStateUp={liftTagsStateUp} />
         </div>
         <div className="flex items-center justify-center [&>*]:m-2">
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="submit"
-          >
-            Submit
-          </button>
+          <Button text="Submit" yellow={true} />
 
-          <a
-            className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-            href="#"
-          >
+          <button className="inline-block align-baseline font-bold text-sm text-red-700 hover:text-red-600">
             Discard Changes
-          </a>
+          </button>
         </div>
       </form>
     </div>
