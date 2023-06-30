@@ -4,11 +4,13 @@ import Button from "../Button";
 import { LoginUserType } from "../../types";
 import { loginUser } from "../../api";
 import useAuth from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({} as LoginUserType);
 
   const { setCurrentUser } = useAuth();
+  const navigate = useNavigate();
 
   const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,8 +19,8 @@ const Login = () => {
   const loginButtonClickHandler = async (e: any) => {
     e.preventDefault();
     const loggedUser = await loginUser(formData);
-    /* console.log(loggedUser); */
     setCurrentUser(loggedUser);
+    navigate("/notes");
   };
 
   return (

@@ -1,6 +1,6 @@
 import NoteList from "../components/Note/NoteList";
 
-const MainPage = () => {
+const NotesPage = () => {
   return (
     <div>
       <h1 className=" text-4xl pb-10">Welcome</h1>
@@ -9,4 +9,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default NotesPage;

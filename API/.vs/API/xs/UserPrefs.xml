@@ -1,4 +1,11 @@
 ﻿<Properties StartupConfiguration="{15E119A5-0F0B-40D8-8B9C-632A29EBD6ED}|https">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/NoteAPIController.cs">
     <Files>
       <File FileName="Program.cs" />
@@ -6,7 +13,7 @@
       <File FileName="appsettings.json" />
       <File FileName="Controllers/NoteAPIController.cs" Line="39" Column="9" />
       <File FileName="Repository/NoteRepository.cs" />
-      <File FileName="Models/Note.cs" Line="15" Column="54" />
+      <File FileName="Models/Note.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -23,11 +30,4 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

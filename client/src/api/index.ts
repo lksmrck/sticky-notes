@@ -50,9 +50,6 @@ export const loginUser = async (user: LoginUserType) => {
   });
 
   const data = await res.json();
-  /* console.log(data.result); */
-  return data.result;
 
-  //TODO: user do state
-  /* return data.result; */
+  return data.result;
 };

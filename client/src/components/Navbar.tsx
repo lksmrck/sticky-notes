@@ -7,15 +7,21 @@ import useAuth from "../context/AuthContext";
 const Navbar = () => {
   const navigate = useNavigate();
 
-  const { currentUser } = useAuth();
+  const { currentUser, setCurrentUser } = useAuth();
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/landing");
+    /* setCurrentUser(null); */
+  };
 
   return (
     <div>
       <div className="w-full flex justify-between p-4">
-        <h1>Ahoj</h1>
-        {/*  <Button className="rounded-full border border-blue-950 bg-blue-950 py-1.5 px-5 text-white transition-all hover:bg-slate-900 text-center text-sm  flex items-center justify-center">
-            Sign Out
-          </Button> */}
+        <h1 className="m-1 cursor-pointer" onClick={() => navigate("/notes")}>
+          NotesApp
+        </h1>
+
         <div className="flex [&>*]:m-1">
           {!currentUser && (
             <Button
@@ -25,11 +31,16 @@ const Navbar = () => {
             />
           )}
 
-          <Button
-            blue={true}
-            onClick={() => navigate("/add-note")}
-            text={"Add Note"}
-          />
+          {currentUser && (
+            <div className="flex">
+              <Button
+                blue={true}
+                onClick={() => navigate("/add-note")}
+                text={"Add Note"}
+              />
+              <Button red={true} onClick={handleLogout} text={"Logout"} />
+            </div>
+          )}
         </div>
       </div>
     </div>
