@@ -1,14 +1,21 @@
-import { FC, FormEvent, useState } from "react";
+import { FC, FormEvent, useState, useEffect } from "react";
 import { Button, Chip } from "@mui/material";
 import Input from "../Input";
 
 type Props = {
   liftTagsStateUp: (tags: string[]) => void;
+  value: string[];
 };
 
-const TagsInput: FC<Props> = ({ liftTagsStateUp }) => {
-  const [tags, setTags] = useState(["test"]);
+const TagsInput: FC<Props> = ({ liftTagsStateUp, value }) => {
+  const [tags, setTags] = useState([] as string[]);
   const [currValue, setCurrValue] = useState("");
+
+  useEffect(() => {
+    if (/* value?.length < 1 || */ value == null) setTags([] as string[]);
+  }, [value]);
+
+  const clearTags = () => {};
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCurrValue(e.target.value);
@@ -35,7 +42,7 @@ const TagsInput: FC<Props> = ({ liftTagsStateUp }) => {
   return (
     //Container
     <div className="w-full bg-white flex items-center flex-wrap [&>*]:m-1">
-      {tags.map((item: any, index: number) => (
+      {tags?.map((item: any, index: number) => (
         <Chip
           size="small"
           onDelete={() => handleDelete(item, index)}

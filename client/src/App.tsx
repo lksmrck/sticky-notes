@@ -22,7 +22,7 @@ function App() {
       <Navbar />
       <div className=" w-full h-screen bg-amber-100">
         <Routes>
-          <Route path="/landing" element={<Landing />} />
+          <Route path="/" element={<Landing />} />
           <Route element={<ProtectedRoutes />}>
             <Route path="/notes" element={<NotesPage />} />
             <Route path="/add-note" element={<AddNotePage />} />

@@ -8,13 +8,14 @@ import Button from "../Button";
 
 const Form = () => {
   const { currentUser } = useAuth();
-  const [formData, setFormData] = useState<NoteType>({
-    author: currentUser.user.name,
-  } as NoteType);
+  const [formData, setFormData] = useState<NoteType>({} as NoteType);
 
   const handleSubmit = async (e: any): Promise<void> => {
     e.preventDefault();
-    const res = await createNote(formData, currentUser.token);
+    const res = await createNote(
+      { ...formData, author: currentUser.user.name },
+      currentUser.token
+    );
     console.log(res);
   };
 
@@ -51,9 +52,10 @@ const Form = () => {
             Note Heading
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
             id="heading"
             name="heading"
+            value={formData.heading}
             type="text"
             placeholder="Heading"
             onChange={inputChangeHandler}
@@ -66,13 +68,22 @@ const Form = () => {
           >
             Note Text
           </label>
-          <TextArea name="text" id="text" onChange={inputChangeHandler} />
-          <TagsInput liftTagsStateUp={liftTagsStateUp} />
+          <TextArea
+            name="text"
+            id="text"
+            onChange={inputChangeHandler}
+            value={formData.text}
+          />
+          <TagsInput liftTagsStateUp={liftTagsStateUp} value={formData.tags} />
         </div>
         <div className="flex items-center justify-center [&>*]:m-2">
           <Button text="Submit" yellow={true} />
 
-          <button className="inline-block align-baseline font-bold text-sm text-red-700 hover:text-red-600">
+          <button
+            className="inline-block align-baseline font-bold text-sm text-red-700 hover:text-red-600"
+            onClick={() => setFormData(emptyForm as NoteType)}
+            type="button"
+          >
             Discard Changes
           </button>
         </div>
@@ -82,3 +93,5 @@ const Form = () => {
 };
 
 export default Form;
+
+const emptyForm = { heading: "", text: "" /* tags: [""] */ };

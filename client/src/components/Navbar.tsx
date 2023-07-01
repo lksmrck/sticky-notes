@@ -16,9 +16,12 @@ const Navbar = () => {
   };
 
   return (
-    <div>
+    <div className="bg-amber-200">
       <div className="w-full flex justify-between p-4">
-        <h1 className="m-1 cursor-pointer" onClick={() => navigate("/notes")}>
+        <h1
+          className="m-1 cursor-pointer text-3xl font-bold text-white"
+          onClick={() => navigate("/notes")}
+        >
           NotesApp
         </h1>
 
