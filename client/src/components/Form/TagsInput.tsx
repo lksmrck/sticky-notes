@@ -51,6 +51,7 @@ const TagsInput: FC<Props> = ({ liftTagsStateUp, value }) => {
       ))}
       <div>
         <Input
+          label="Tag"
           value={currValue}
           onChange={handleChange}
           onKeyDown={keyPress}

@@ -11327,25 +11327,27 @@
     ]
   },
   "packageFolders": {
-    "/Users/lukasthevicious/.nuget/packages/": {}
+    "C:\\Users\\Lukas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/lukasthevicious/Desktop/GitHub/12_Sticky_Notes/sticky-notes/API/API.csproj",
+      "projectUniqueName": "C:\\Users\\Lukas\\Desktop\\00_Sticky_Notes\\sticky-notes\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "/Users/lukasthevicious/Desktop/GitHub/12_Sticky_Notes/sticky-notes/API/API.csproj",
-      "packagesPath": "/Users/lukasthevicious/.nuget/packages/",
-      "outputPath": "/Users/lukasthevicious/Desktop/GitHub/12_Sticky_Notes/sticky-notes/API/obj/",
+      "projectPath": "C:\\Users\\Lukas\\Desktop\\00_Sticky_Notes\\sticky-notes\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\Lukas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lukas\\Desktop\\00_Sticky_Notes\\sticky-notes\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/lukasthevicious/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Lukas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "/usr/local/share/dotnet/sdk/7.0.304/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -11422,7 +11424,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.304/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }

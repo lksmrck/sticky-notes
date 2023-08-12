@@ -25,17 +25,21 @@ const Login = () => {
 
   return (
     <div className="w-full h-full flex justify-center items-center">
-      <div className=" rounded-lg bg-white w-96 h-96 flex flex-col justify-center items-center">
+      <div className=" rounded-xl bg-sky-950 w-96 h-64 flex flex-col justify-center items-center">
         <form className="flex flex-col justify-center items-center">
           <Input
             value={formData.userName}
             onChange={inputChangeHandler}
             name="username"
+            label="Username"
+            className="text-white bg-sky-950"
           />
           <Input
             value={formData.password}
             onChange={inputChangeHandler}
             name="password"
+            label="Password"
+            className="text-white mb-2 bg-sky-950"
           />
           <Button onClick={loginButtonClickHandler} text={"Login"} />
         </form>

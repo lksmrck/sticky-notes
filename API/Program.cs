@@ -36,15 +36,7 @@ namespace backend
                 options.AddPolicy("AllowAll", b => b.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
             });
 
-            //builder.Services.AddCors(options =>
-            //{
-            //    options.AddPolicy(name: "AllowAll",
-            //                      policy =>
-            //                      {
-            //                          policy.WithOrigins("http://localhost:3008",
-            //                                              "http://www.xxx.com"); // add the allowed origins  
-            //                      });
-            //});
+
 
             // Add services to the container.
 

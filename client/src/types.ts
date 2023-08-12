@@ -11,6 +11,12 @@ export type LoginUserType = {
   password: string;
 };
 
+export type RegisterUserType = {
+  userName: string;
+  name: string;
+  password: string;
+};
+
 export type UserType = {
   userName: string;
   name: string;
