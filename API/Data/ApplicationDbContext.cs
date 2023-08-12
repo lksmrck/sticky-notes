@@ -1,6 +1,7 @@
 ﻿using API.Models;
 using AutoMapper.Execution;
 using backend.Models;
+using Domain.Note;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
@@ -19,10 +20,10 @@ namespace backend.Data
 
         // Create tables
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-        public DbSet<LocalUser> LocalUsers { get; set; }  
+        public DbSet<LocalUser> LocalUsers { get; set; }
         public DbSet<Note> Notes { get; set; }
 
-     
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -37,5 +38,5 @@ namespace backend.Data
         }
     }
 
-   
+
 }

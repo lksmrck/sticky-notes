@@ -1,4 +1,5 @@
 ﻿using backend.Models;
+using Domain.Note;
 
 namespace backend.Repository.IRepository
 {

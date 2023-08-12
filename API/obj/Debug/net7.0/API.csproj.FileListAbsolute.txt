@@ -1138,3 +1138,7 @@ C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\API\obj\Debug\net7.0\refint\
 C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\API\obj\Debug\net7.0\API.pdb
 C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\API\obj\Debug\net7.0\API.genruntimeconfig.cache
 C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\API\obj\Debug\net7.0\ref\API.dll
+C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\API\bin\Debug\net7.0\Domain.dll
+C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\API\bin\Debug\net7.0\Notes.Validation.dll
+C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\API\bin\Debug\net7.0\Notes.Validation.pdb
+C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\API\bin\Debug\net7.0\Domain.pdb

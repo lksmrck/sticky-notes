@@ -3,6 +3,7 @@ using API.Models.DTO;
 using AutoMapper;
 using backend.Models;
 using backend.Models.DTO;
+using Domain.Note;
 
 namespace API
 {

@@ -1,0 +1,15 @@
+C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\Notes.Validation\bin\Debug\net6.0\Notes.Validation.deps.json
+C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\Notes.Validation\bin\Debug\net6.0\Notes.Validation.dll
+C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\Notes.Validation\bin\Debug\net6.0\Notes.Validation.pdb
+C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\Notes.Validation\bin\Debug\net6.0\Domain.dll
+C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\Notes.Validation\bin\Debug\net6.0\Domain.pdb
+C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\Notes.Validation\obj\Debug\net6.0\Notes.Validation.csproj.AssemblyReference.cache
+C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\Notes.Validation\obj\Debug\net6.0\Notes.Validation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\Notes.Validation\obj\Debug\net6.0\Notes.Validation.AssemblyInfoInputs.cache
+C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\Notes.Validation\obj\Debug\net6.0\Notes.Validation.AssemblyInfo.cs
+C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\Notes.Validation\obj\Debug\net6.0\Notes.Validation.csproj.CoreCompileInputs.cache
+C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\Notes.Validation\obj\Debug\net6.0\Notes.Validation.csproj.CopyComplete
+C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\Notes.Validation\obj\Debug\net6.0\Notes.Validation.dll
+C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\Notes.Validation\obj\Debug\net6.0\refint\Notes.Validation.dll
+C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\Notes.Validation\obj\Debug\net6.0\Notes.Validation.pdb
+C:\Users\Lukas\Desktop\00_Sticky_Notes\sticky-notes\Notes.Validation\obj\Debug\net6.0\ref\Notes.Validation.dll

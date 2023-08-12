@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿
 
-namespace backend.Models
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace Domain.Note
 {
     public class Note
     {
@@ -11,8 +13,9 @@ namespace backend.Models
         public string Heading { get; set; }
         public string Text { get; set; }
         public string Author { get; set; }
+        public string AuthorId { get; set; }
         public List<string> Tags { get; set; } = new();
-        public DateTime CreatedDate { get; set; }    
+        public DateTime CreatedDate { get; set; }
         public DateTime EditedDate { get; set; }
     }
 }

@@ -3897,6 +3897,29 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
+      },
+      "Notes.Validation/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Notes.Validation.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Notes.Validation.dll": {}
+        }
       }
     }
   },
@@ -11311,6 +11334,16 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
+    },
+    "Notes.Validation/1.0.0": {
+      "type": "project",
+      "path": "../Notes.Validation/Notes.Validation.csproj",
+      "msbuildProject": "../Notes.Validation/Notes.Validation.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -11323,6 +11356,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.5",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.5",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 7.0.6",
+      "Notes.Validation >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
@@ -11353,7 +11387,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Lukas\\Desktop\\00_Sticky_Notes\\sticky-notes\\Notes.Validation\\Notes.Validation.csproj": {
+              "projectPath": "C:\\Users\\Lukas\\Desktop\\00_Sticky_Notes\\sticky-notes\\Notes.Validation\\Notes.Validation.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

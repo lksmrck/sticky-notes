@@ -1,5 +1,6 @@
 ﻿using backend.Data;
 using backend.Models;
+using Domain.Note;
 
 namespace API
 {
@@ -14,7 +15,7 @@ namespace API
 
         public void SeedDbContext()
         {
-            if(!_context.Notes.Any())
+            if (!_context.Notes.Any())
             {
                 //var notes = new List<Note>{
                 //    new Note()
@@ -34,22 +35,23 @@ namespace API
                 //        Heading = "Second Note",
                 //        Text = "Detailsaf nejfqo qnfwk qwfn qwf qn",
                 //        Author = "Bedrich Smetana",
-                          
+
                 //        Tags = new List<Tag>() { new Tag {/* NoteId = 1,*/ Text = "eqgqegqeg" }, new Tag { /*NoteId = 2,*/ Text = "egqeg" } },
                 //        CreatedDate = DateTime.Now
                 //    }};
 
                 var note1 = new Note()
                 {
-         
+
                     Heading = "First Note",
                     Text = "Detailsaf nejfqo qnfwk qwfn qwf qn",
                     Author = "Antonin Dvorak",
-                 
-                   
+                    AuthorId = "600eeb4e-f98f-415d-a7e6-9ebbe3b39324",
+
+
                 };
 
-         
+
                 var tags1 = new[] { "prvnitag", "druhytag" };
 
 

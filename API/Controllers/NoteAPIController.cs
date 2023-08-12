@@ -14,6 +14,7 @@ using backend.Models.DTO;
 using AutoMapper;
 using API.Models.DTO;
 using Microsoft.AspNetCore.Authorization;
+using Domain.Note;
 
 namespace backend.Controllers
 {
@@ -49,7 +50,7 @@ namespace backend.Controllers
 
                 notesList = await _dbNote.GetAllAsync();
 
-               
+
                 _response.Result = _mapper.Map<List<NoteDto>>(notesList);
                 _response.StatusCode = HttpStatusCode.OK;
 
@@ -111,7 +112,7 @@ namespace backend.Controllers
 
         // POST: api/Notes
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -200,13 +201,13 @@ namespace backend.Controllers
         {
             try
             {
-                if(id == 0)
+                if (id == 0)
                 {
                     return BadRequest();
                 }
 
-                var foundNote = await _dbNote.GetAsync(u =>  u.Id == id);
-                
+                var foundNote = await _dbNote.GetAsync(u => u.Id == id);
+
                 if (foundNote == null)
                 {
                     return NotFound();
@@ -228,6 +229,6 @@ namespace backend.Controllers
             return _response;
         }
 
-      
+
     }
 }

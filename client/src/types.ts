@@ -3,6 +3,7 @@ export type NoteType = {
   heading: string;
   text: string;
   author: string;
+  authorId: string;
   tags: string[];
 };
 

@@ -14,6 +14,8 @@ namespace API.Models.DTO
         public string Text { get; set; }
         [Required]
         public string Author { get; set; }
+        [Required]
+        public string AuthorId { get; set; }
         public List<string> Tags { get; set; }
     }
 }

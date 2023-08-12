@@ -10,13 +10,22 @@ const Form = () => {
   const { currentUser } = useAuth();
   const [formData, setFormData] = useState<NoteType>({} as NoteType);
 
-  const handleSubmit = async (e: any): Promise<void> => {
+  const emptyForm = () => setFormData({} as NoteType);
+
+  const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
+    console.log("user", currentUser);
     const res = await createNote(
-      { ...formData, author: currentUser.user.name },
+      {
+        ...formData,
+        author: currentUser.user.name,
+        authorId: currentUser.user.id,
+      },
       currentUser.token
     );
     console.log(res);
+
+    emptyForm();
   };
 
   const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,7 +50,7 @@ const Form = () => {
     <div className="w-full h-full flex justify-center items-center ">
       <form
         className=" bg-sky-950 w-1/3 shadow-md rounded-xl px-8 pt-6 pb-8 mb-4 min-h-1/2"
-        onSubmit={handleSubmit}
+        // onSubmit={handleSubmit}
       >
         <div className="mb-4">
           <label
@@ -77,11 +86,11 @@ const Form = () => {
           <TagsInput liftTagsStateUp={liftTagsStateUp} value={formData.tags} />
         </div>
         <div className="flex items-center justify-center [&>*]:m-2">
-          <Button text="Submit" yellow={true} />
+          <Button onClick={handleSubmit} text="Submit" yellow={true} />
 
           <button
             className="inline-block align-baseline font-bold text-sm text-red-700 hover:text-red-600"
-            onClick={() => setFormData(emptyForm as NoteType)}
+            onClick={emptyForm}
             type="button"
           >
             Discard Changes
@@ -94,4 +103,4 @@ const Form = () => {
 
 export default Form;
 
-const emptyForm = { heading: "", text: "" /* tags: [""] */ };
+// const emptyForm = { heading: "", text: "" /* tags: [""] */ };
