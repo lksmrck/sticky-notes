@@ -15,6 +15,7 @@ using AutoMapper;
 using API.Models.DTO;
 using Microsoft.AspNetCore.Authorization;
 using Domain.Note;
+using Notes.Validation.Services.Interfaces;
 
 namespace backend.Controllers
 {
@@ -26,13 +27,15 @@ namespace backend.Controllers
         private readonly ApplicationDbContext _db;
         private readonly INoteRepository _dbNote;
         private readonly IMapper _mapper;
+        private readonly INoteValidationService _validationService;
 
-        public NoteAPIController(ApplicationDbContext db, INoteRepository dbNote, IMapper mapper)
+        public NoteAPIController(ApplicationDbContext db, INoteRepository dbNote, IMapper mapper, INoteValidationService validationService)
         {
             _response = new APIResponse();
             _db = db;
             _dbNote = dbNote;
             _mapper = mapper;
+            _validationService = validationService;
         }
 
         // GET: api/Notes
@@ -131,13 +134,16 @@ namespace backend.Controllers
                     return BadRequest(createDto);
                 }
 
-                //TODO: pridat mapper na noteDTO
-                //Note note = note;
-
                 Note note = _mapper.Map<Note>(createDto);
 
-                await _dbNote.CreateAsync(note);
+                var validationResult = _validationService.ValidateNote(note);
 
+                if (validationResult.IsValid == false)
+                {
+                    return BadRequest(validationResult);
+                }
+
+                await _dbNote.CreateAsync(note);
 
                 _response.Result = _mapper.Map<NoteDto>(note);
                 _response.StatusCode = HttpStatusCode.Created;

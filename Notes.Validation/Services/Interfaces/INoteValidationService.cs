@@ -1,10 +1,10 @@
 ﻿using Domain.Note;
-using Notes.Validation.Models;
+using FluentValidation.Results;
 
 namespace Notes.Validation.Services.Interfaces
 {
     public interface INoteValidationService
     {
-        ValidationResult[] ValidateNote(Note note);
+        ValidationResult ValidateNote(Note note);
     }
 }

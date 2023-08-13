@@ -1,5 +1,5 @@
 ﻿using Domain.Note;
-using Notes.Validation.Models;
+using FluentValidation.Results;
 using Notes.Validation.Services.Interfaces;
 using Notes.Validation.Validation;
 using System;
@@ -18,9 +18,11 @@ namespace Notes.Validation.Services
         {
             _noteValidator = noteValidator;
         }
-        public ValidationResult[] ValidateNote(Note note)
+        public ValidationResult ValidateNote(Note note)
         {
-            throw new NotImplementedException();
+            var validationResult = _noteValidator.Validate(note);
+
+            return validationResult;
         }
     }
 }
