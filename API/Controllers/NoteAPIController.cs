@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using backend.Data;
+
 using backend.Models;
-using backend.Repository.IRepository;
+
 using System.Net;
 using Microsoft.AspNetCore.Http.HttpResults;
 using backend.Models.DTO;
@@ -16,6 +16,8 @@ using API.Models.DTO;
 using Microsoft.AspNetCore.Authorization;
 using Domain.Note;
 using Notes.Validation.Services.Interfaces;
+using Persistence;
+using Application.Interfaces;
 
 namespace backend.Controllers
 {

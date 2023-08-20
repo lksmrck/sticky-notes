@@ -1,19 +1,21 @@
-﻿using backend.Data;
-using backend.Models;
-using backend.Repository.IRepository;
+﻿using Application.Interfaces;
+using Persistence;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace backend.Repository
+namespace Application
 {
     public class Repository<T> : IRepository<T> where T : class
     {
         private readonly ApplicationDbContext _db;
         internal DbSet<T> _dbSet;
 
-        public Repository(ApplicationDbContext db) 
+        public Repository(ApplicationDbContext db)
         {
             _db = db;
             _dbSet = _db.Set<T>();

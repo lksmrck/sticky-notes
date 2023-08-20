@@ -1,10 +1,9 @@
-﻿using backend.Data;
-using backend.Models;
-using backend.Repository.IRepository;
+﻿using Application.Interfaces;
 using Domain.Note;
 using Microsoft.EntityFrameworkCore;
+using Persistence;
 
-namespace backend.Repository
+namespace Application.Services
 {
     public class NoteRepository : Repository<Note>, INoteRepository
     {

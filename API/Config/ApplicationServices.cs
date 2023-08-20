@@ -1,14 +1,16 @@
 ﻿using API.Models;
 using API.Repository.IRepository;
 using API.Repository;
-using backend.Data;
-using backend.Repository.IRepository;
-using backend.Repository;
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Domain.Users;
+using Persistence;
+using Application.Interfaces;
+using Application.Services;
 
 namespace API.Config
 {
@@ -18,7 +20,7 @@ namespace API.Config
         {
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                options.UseSqlServer(config.GetConnectionString("DefaultSQLConnection"));
+                options.UseSqlServer(config.GetConnectionString("DefaultSQLConnection"), b => b.MigrationsAssembly("API"));
             });
             // Db tables for user will be created by identity
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();

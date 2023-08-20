@@ -4,6 +4,7 @@ using AutoMapper;
 using backend.Models;
 using backend.Models.DTO;
 using Domain.Note;
+using Domain.Users;
 
 namespace API
 {

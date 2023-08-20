@@ -1,15 +1,17 @@
-﻿using API.Models;
-using AutoMapper.Execution;
-using backend.Models;
+﻿
+
 using Domain.Note;
+using Domain.Users;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace backend.Data
+
+namespace Persistence
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -20,7 +22,7 @@ namespace backend.Data
 
         // Create tables
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-        public DbSet<LocalUser> LocalUsers { get; set; }
+
         public DbSet<Note> Notes { get; set; }
 
 

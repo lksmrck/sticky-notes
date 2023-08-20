@@ -2,12 +2,13 @@
 using API.Models.DTO;
 using API.Repository.IRepository;
 using AutoMapper;
-using Azure;
-using backend.Data;
+
 using backend.Models;
 using backend.Models.DTO;
+using Domain.Users;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using Persistence;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -42,16 +43,16 @@ namespace API.Repository
 
         public async Task<LoginResponseDto> Login(LoginRequestDto loginRequestDto)
         {
-            
+
             //var user = _db.LocalUsers.FirstOrDefault(x => x.UserName.ToLower() == loginRequestDto.UserName.ToLower() && x.Password == loginRequestDto.Password);
-            
+
             // Find user in Identity table
             var user = _db.ApplicationUsers.FirstOrDefault(x => x.UserName.ToLower() == loginRequestDto.UserName.ToLower());
 
             // Check password (hashed in Identity table)
             bool isValid = await _userManager.CheckPasswordAsync(user, loginRequestDto.Password);
 
-            if (user == null || isValid == false) 
+            if (user == null || isValid == false)
             {
                 return new LoginResponseDto()
                 {
@@ -121,7 +122,7 @@ namespace API.Repository
             //await _db.SaveChangesAsync();
 
 
-          
+
         }
     }
 }

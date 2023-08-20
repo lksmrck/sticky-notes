@@ -15,7 +15,6 @@ namespace backend
             builder.Services.AddControllers().AddFluentValidation(fv =>
             {
                 fv.RegisterValidatorsFromAssemblyContaining<Program>();
-
             });
 
             builder.Services.RegisterServices(builder.Configuration);
